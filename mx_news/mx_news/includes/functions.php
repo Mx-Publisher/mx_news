@@ -2,7 +2,7 @@
 /**
 *
 * @package MX-Publisher Module - mx_news
-* @version $Id: functions.php,v 1.8 2008/07/15 22:06:18 jonohlsson Exp $
+* @version $Id: functions.php,v 1.9 2020/02/27 07:36:17 orynider Exp $
 * @copyright (c) 2002-2006 [Jon Ohlsson, Mohd Basri, wGEric, PHP Arena, pafileDB, CRLin] MX-Publisher Project Team
 * @license http://opensource.org/licenses/gpl-license.php GNU General Public License v2
 *
@@ -86,8 +86,8 @@ class mx_news_functions
 	 *
 	 * @param unknown_type $lang
 	 * @return unknown
-	 */
-	function encode_lang($displayname, 'language')
+	*/
+	function encode_lang($displayname, $mode = 'language')
 	{
 			if (PORTAL_BACKEND == 'phpbb2')
 			{
@@ -96,11 +96,12 @@ class mx_news_functions
 			else
 			{
 				//Str replace and upper case of language name just to be certain
-				$lang = strtoupper(str_replace(array(" ","_"), "_", $displayname)), 
+				$lang = strtoupper(str_replace(array(" ","_"), "_", $displayname));
 			}
 			
 			switch($lang)
 			{
+				
 				case 'AFAR':
 					$lang_iso = 'aa';
 					$country_name = 'AFAR'; //Ethiopia
@@ -615,30 +616,30 @@ class mx_news_functions
 				break;
 				
 				//Geman (Deutsch)
-				/*	deu – German
-					gmh – Middle High German
-					goh – Old High German
-					gct – Colonia Tovar German
-					bar – Bavarian
-					cim – Cimbrian
-					geh – Hutterite German
-					ksh – Kölsch
-					nds – Low German
-					sli – Lower Silesian
-					ltz – Luxembourgish
-					vmf – Mainfränkisch
-					mhn – Mòcheno
-					pfl – Palatinate German
-					pdc – Pennsylvania German
-					pdt – Plautdietsch
-					swg – Swabian German
-					gsw – Swiss German
-					uln – Unserdeutsch
-					sxu – Upper Saxon
-					wae – Walser German
-					wep – Westphalian
-					hrx – Riograndenser Hunsrückisch
-					yec – Yenish	*/
+				//	deu – German
+				//	gmh – Middle High German
+				//	goh – Old High German
+				//	gct – Colonia Tovar German
+				//	bar – Bavarian
+				//	cim – Cimbrian
+				//	geh – Hutterite German
+				//	ksh – Kölsch
+				//	nds – Low German
+				//	sli – Lower Silesian
+				//	ltz – Luxembourgish
+				//	vmf – Mainfränkisch
+				//	mhn – Mòcheno
+				//	pfl – Palatinate German
+				//	pdc – Pennsylvania German
+				//	pdt – Plautdietsch
+				//	swg – Swabian German
+				//	gsw – Swiss German
+				//	uln – Unserdeutsch
+				//	sxu – Upper Saxon
+				//	wae – Walser German
+				//	wep – Westphalian
+				//	hrx – Riograndenser Hunsrückisch
+				//	yec – Yenish
 
 				
 				//Germany 	84,900,000 	75,101,421 (91.8%) 	5,600,000 (6.9%) 	De facto sole nationwide official language
@@ -1592,11 +1593,6 @@ class mx_news_functions
 					$country_name = '';
 				break;
 				
-				case 'CHINESE_HONG_KONG':
-					$lang_iso = 'hk';
-					$country_name = 'HONG_KONG';
-				break;
-				
 				case 'HONDURAS':
 					$country_name = 'Honduras';
 					$lang_iso = 'hn';
@@ -1611,8 +1607,6 @@ class mx_news_functions
 					$lang_iso = 'ht';
 					$country_name = 'HAITI';
 				break;
-				
-
 				
 				case 'HUNGARIAN':
 					$lang_iso = 'hu';
@@ -1695,9 +1689,11 @@ class mx_news_functions
 					$lang_iso = 'ir';
 					$country_name = 'IRAN';
 				break;
+				
 				case 'IDO':
 					$lang_iso = 'io';
 				break;
+				
 				case 'ICELANDIC':
 					$lang_iso = 'is';
 					$country_name = 'ICELAND';
@@ -1707,9 +1703,11 @@ class mx_news_functions
 					$lang_iso = 'it';
 					$country_name = 'ITALY';
 				break;
+				
 				case 'INUKTITUT':
 					$lang_iso = 'iu';
-				break;				
+				break;
+				
 				case 'IRAQIAN':
 					$lang_iso = 'iq';
 					$country_name = 'IRAQ';
@@ -1749,38 +1747,51 @@ class mx_news_functions
 					$lang_iso = 'ke';
 					$country_name = 'KENYA';
 				break;
+				
 				case 'KONGO':
 					$lang_iso = 'kg';
-				break				
+					
+				break;
+				
 				case 'KIKUYU':
 					$lang_iso = 'ki';
 					$country_name = 'KIRIBATI';
 				break;
+				
 				case 'KWANYAMA':
 					$lang_iso = 'kj';
+					
 				break;
+				
 				case 'KAZAKH':
 					$lang_iso = 'kk';
+					
 				break;
+				
 				case 'KALAALLISUT':
 					$lang_iso = 'kl';
-				break;				
+					
+				break;
+				
 				//Bantu languages 
 				//zdj – Ngazidja Comorian
 				case 'NGAZIDJA_COMORIAN':
 					$lang_iso = 'zdj';
 					$country_name = 'COMOROS';
 				break;
+				
 				//wni – Ndzwani  Comorian (Anjouani) dialect
 				case 'NDZWANI_COMORIAN':
 					$lang_iso = 'wni';
 					$country_name = 'COMOROS';
 				break;
+				
 				//swb – Maore Comorian dialect
 				case 'MAORE_COMORIAN':
 					$lang_iso = 'swb';
 					$country_name = 'COMOROS';
 				break;
+				
 				//wlc – Mwali Comorian dialect
 				case 'MWALI_COMORIAN':
 					$lang_iso = 'wlc';
@@ -1814,9 +1825,12 @@ class mx_news_functions
 					$lang_iso = 'ko';
 					$country_name = 'KOREA_SOUTH';
 				break;
+				
 				case 'KANURI':
 					$lang_iso = 'kr';
-				break;				
+					
+				break;
+				
 				case 'ST_KITTS_NEVIS':
 					$lang_iso = 'kn';
 					$country_name = 'ST_KITTS-NEVIS';
@@ -1900,10 +1914,13 @@ class mx_news_functions
 
 				case 'LINGALA':
 					$lang_iso = 'ln';
+					
 				break;
+				
 				case 'LAO':
 					$lang_iso = 'lo';
 				break;
+				
 				case 'LITHUANIAN':
 					$country_name = 'LITHUANIA';
 					$lang_iso = 'lt';
@@ -1913,9 +1930,11 @@ class mx_news_functions
 					$lang_iso = 'lu';
 					$country_name = 'LUXEMBOURG';
 				break;
+				
 				case 'LATVIAN':
 					$lang_iso = 'lv';
-				break;				
+				break;
+				
 				case 'MOROCCO':
 					$lang_iso = 'ma';
 					$country_name = 'MOROCCO';
@@ -1967,9 +1986,12 @@ class mx_news_functions
 					$lang_iso = 'mk';
 					$country_name = 'MACEDONIA';
 				break;
+				
 				case 'MALAYALAM':
 					$lang_iso = 'ml';
+					
 				break;
+				
 				case 'MAURITANIAN':
 					$lang_iso = 'mr';
 					$country_name = 'Mauritania';
@@ -1984,6 +2006,7 @@ class mx_news_functions
 					$lang_iso = 'mn';
 					$country_name = 'MONGOLIA';
 				break;
+				
 				case 'MOLDAVIAN':
 					$lang_iso = 'mo';
 					$country_name = 'MACAU';
@@ -2032,11 +2055,13 @@ class mx_news_functions
 					$lang_iso = 'mt';
 					$country_name = 'MALTA';
 				break;
+				
 				case 'BURMESE':
 					$lang_iso = 'my';
-				break;				
-				case 'mx':
-					$lang_iso = 'Mexico';
+				break;
+				
+				case 'MEXICO':
+					$lang_iso = 'mx';
 					$country_name = 'MEXICO';
 				break;
 				
@@ -2045,30 +2070,30 @@ class mx_news_functions
 					$country_name = 'MARTINIQUE';
 				break;
 				
-				case 'na':
-					$lang_iso = 'Nambia';
+				case 'NAMBIA':
+					$lang_iso = 'na';
 					$country_name = 'NAMBIA';
 				break;
 				
-				case 'ni':
-					$lang_iso = 'Nicaragua';
+				case 'NICARAGUA':
+					$lang_iso = 'ni';
 					$country_name = 'NICARAGUA';
 				break;
 				
 				//Barber: Targuí, tuareg
-				case 'ne':
-					$lang_iso = 'Niger';
+				case 'NIGER':
+					$lang_iso = 'ne';
 					$country_name = 'NIGER';
 				break;
 				
 				//Mostly spoken on  Maré Island of the Loyalty Islands, New Caledonia. 
-				case 'nen':
-					$lang_iso = 'NENGONE';
+				case 'NENGONE':
+					$lang_iso = 'nen';
 					$country_name = 'NEW_CALEDONIA';
 				break;
 				
-				case 'new':
-					$lang_iso = 'NEW_LANGUAGE'; 
+				case 'NEW_LANGUAGE':
+					$lang_iso = 'new'; 
 					$country_name = 'NEW_COUNTRY';
 				break;
 				
@@ -2097,18 +2122,18 @@ class mx_news_functions
 					$country_name = 'NETHERLANDS';
 				break;
 				
-				case 'no':
-					$lang_iso = 'Norway';
+				case 'NORWAY':
+					$lang_iso = 'no';
 					$country_name = 'NORWAY';
 				break;
 				
-				case 'np':
-					$lang_iso = 'Nepal';
+				case 'NEPAL':
+					$lang_iso = 'np';
 					$country_name = 'NEPAL';
 				break;
 				
-				case 'nr':
-					$lang_iso = 'Nauru';
+				case 'NAURU':
+					$lang_iso = 'nr';
 					$country_name = 'NAURU';
 				break;
 				
@@ -2122,44 +2147,46 @@ class mx_news_functions
 					$country_name = 'NIUE'; // Niuean: Niuē
 				break;
 				
-				case 'nz':
-					$lang_iso = 'New Zealand';
+				case 'NEW_ZEALAND':
+					$lang_iso = 'nz';
 					$country_name = 'NEW_ZEALAND';
 				break;
 				
-				case 'ny':
-					$lang_iso = 'Chewa';
+				case 'CHEWA':
+					$lang_iso = 'ny';
 					$country_name = 'Nyanja';
 				break;
 				//langue d'oc
-				case 'oc':
-					$lang_iso = 'OCCITAN';
+				case 'OCCITAN':
+					$lang_iso = 'oc';
 					$country_name = 'OCCITANIA';
 				break;
 
-				case 'oj':
-					$lang_iso = 'ojibwa';
-					$country_name = '';
+				case 'OJIBWA':
+					$lang_iso = 'oj';
+					$country_name = 'OJIBWA';
 				break;
 
-				case 'om':
-					$lang_iso = 'Oman';
+				case 'OMAN':
+					$lang_iso = 'om';
 					$country_name = 'OMAN';
 				break;
 
-				case 'or':
-					$lang_iso = 'oriya';
+				case 'ORIYA':
+					$lang_iso = 'or';
 					$country_name = '';
 				break;
 
-				case 'os':
-					$lang_iso = 'ossetian';
-					$country_name = '';
+				case 'OSSETIAN':
+					$lang_iso = 'os';
+					$country_name = 'OSSETIA';
 				break;
 
-				case 'pa':
+				case 'PUNJABI':
+				case 'PANJABI':
+				case 'GURMIKI':
 					$country_name = 'Panama';
-					$lang_iso = 'PANAMA';
+					$lang_iso = 'pa';
 				break;
 
 
@@ -2168,23 +2195,23 @@ class mx_news_functions
 					$lang_iso = 'PERU';
 				break;
 
-				case 'ph':
-					$lang_iso = 'Philippines';
+				case 'PHILIPPINESE':
+					$lang_iso = 'ph';
 					$country_name = 'PHILIPPINES';
 				break;
 				
-				case 'pf':
+				case 'TAHITIAN':
 					$country_name = 'French Polynesia';
-					$lang_iso = 'tahitian'; //Polynésie française
+					$lang_iso = 'pf'; //Polynésie française
 				break;
 				
-				case 'pg':
+				case 'PAPUA_GUINEA':
 					$country_name = 'PAPUA_NEW_GUINEA';
-					$lang_iso = 'Papua New Guinea';
+					$lang_iso = 'pg';
 				break;
 				
-				case 'pi':
-					$lang_iso = 'pali';
+				case 'PALI':
+					$lang_iso = 'pi';
 					$country_name = '';
 				break;
 				
@@ -2203,8 +2230,8 @@ class mx_news_functions
 				
 				break;
 				
-				case 'pr':
-					$lang_iso = 'Puerto Rico';
+				case 'PUERTO_RICO':
+					$lang_iso = 'pr';
 					$country_name = 'PUERTO_RICO';
 				
 				break;
@@ -2218,7 +2245,7 @@ class mx_news_functions
 				case 'PORTUGUESE_BRASIL':
 					$lang_iso = 'pt_br'
 					;
-				break;				
+				break;
 				
 				case 'pk':
 					$lang_iso = 'Pakistan';
@@ -2253,7 +2280,7 @@ class mx_news_functions
 				case 'ROMANSH':
 					$lang_iso = 'rm';
 				
-				break;				
+				break;
 				
 				//    rmn – Balkan Romani
 				//    rml – Baltic Romani
@@ -2273,6 +2300,8 @@ class mx_news_functions
 				break;
 				
 				case 'ROMANIAN':
+				case 'ROMANIAN_ANSI':
+				case 'ROMANIAN_NO_DIACRITICS':
 					$country_name = 'ROMANIA';
 					$lang_iso = 'ro';
 				break;
@@ -2283,14 +2312,13 @@ class mx_news_functions
 					$lang_iso = 'ROMANIAN_MOLDAVIA';
 				break;
 				
-				case 'ro_ro':
-				case 'ro_RO':
+				case 'ROMANIAN_ROMANIA':
 					$country_name = 'ROMANIA';
-					$lang_iso = 'ROMANIAN_ROMANIA';
+					$lang_iso = 'ro_ro';
 				break;
 				
-				case 'rn':
-					$lang_iso = 'kirundi';
+				case 'KIRUNDI':
+					$lang_iso = 'rn';
 					$country_name = '';
 				break;
 				
@@ -2299,9 +2327,9 @@ class mx_news_functions
 					$lang_iso = 'romansh'; //Switzerland
 				break;
 				
-				case 'rs':
+				case 'REPUBLIC_OF_SERBIA':
 					$country_name = 'REPUBLIC_OF_SERBIA'; //Република Србија //Republika Srbija
-					$lang_iso = 'serbian'; //Serbia, Србија / Srbija
+					$lang_iso = 'rs'; //Serbia, Србија / Srbija
 				break;
 				
 				//case 'ru':
@@ -2315,7 +2343,6 @@ class mx_news_functions
 					$country_name = 'RWANDA';
 					$lang_iso = 'rw';
 				break;
-
 				
 				case 'SANSKRIT':
 					$lang_iso = 'sa';
@@ -2336,7 +2363,7 @@ class mx_news_functions
 					$lang_iso = 'SCOTISH';
 					$country_name = 'Scotland';
 				break;
-
+				
 				//scf – San Miguel Creole French (Panama)		
 				case 'scf':
 					$lang_iso = 'SAN_MIGUEL_CREOLE_FRENCH';  
@@ -2366,13 +2393,11 @@ class mx_news_functions
 					$lang_iso = 'si';
 					$country_name = 'SLOVENIA';
 				break;
-								
+				
 				case 'SLOVAK':
 					$country_name = 'SLOVAKIA';
 					$lang_iso = 'sk';
 				break;
-				
-
 				
 				case 'SLOVENIAN':
 					$country_name = 'SIERRA_LEONE';
@@ -2414,8 +2439,8 @@ class mx_news_functions
 					$country_name = 'REPUBLIC_OF_SOUTH_SUDAN';
 				break;
 				
-				case 'sse':
-					$lang_iso = 'STANDARD_SCOTTISH_ENGLISH';
+				case 'STANDARD_SCOTTISH_ENGLISH':
+					$lang_iso = 'sse';
 					$country_name = 'Scotland';
 				break;
 				
@@ -2429,13 +2454,10 @@ class mx_news_functions
 				
 				break;
 				
-
-				
 				case 'SINT_MAARTEN_DUTCH':
 					$lang_iso = 'sx';
 					$country_name = 'SINT_MAARTEN_(DUTCH_PART)';
 				break;
-				
 				
 				case 'SWAZILAND':
 					$lang_iso = 'sz';
@@ -2452,8 +2474,8 @@ class mx_news_functions
 				//$country_name = 'SWEDEN';
 				break;
 
-				case 'sy':
-					$lang_iso = 'SYRIAC'; //arabic syrian
+				case 'SYRIAC':
+					$lang_iso = 'sy'; //arabic syrian
 					$country_name = 'SYRIA';
 				break;
 				
@@ -2462,13 +2484,13 @@ class mx_news_functions
 				
 				break;
 				
-				case 'tc':
-					$lang_iso = 'Turks &amp; Caicos Is';
+				case 'TURKS_CAICOS':
+					$lang_iso = 'tc';
 					$country_name = 'TURKS_&AMP;_CAICOS_IS';
 				break;
 				
-				case 'td':
-					$lang_iso = 'Chad';
+				case 'CHAD':
+					$lang_iso = 'td';
 					$country_name = 'CHAD';
 				break;
 				
@@ -2510,7 +2532,7 @@ class mx_news_functions
 				case 'TURKMEN':
 					$lang_iso = 'tk';
 				
-				break;				
+				break;
 				
 				case 'TOKELAUAN':
 					//260 speakers of Tokelauan, of whom 2,100 live in New Zealand, 
@@ -2565,8 +2587,8 @@ class mx_news_functions
 				
 				break;
 				
-				case 'TAIWANESE_HOKKIEN': //Taibei Hokkien											
-				case 'TWI':				
+				case 'TAIWANESE_HOKKIEN': //Taibei Hokkien
+				case 'TWI':
 					$lang_iso = 'tw'; 
 					$country_name = 'TAIWAN';
 				break;
@@ -2574,14 +2596,12 @@ class mx_news_functions
 				case 'TAHITIAN':
 					$lang_iso = 'ty';
 				
-				break;				
+				break;
 				
 				case 'TANZANIA':
 					$country_name = 'TANZANIA';
 					$lang_iso = 'tz';
 				break;
-
-
 				
 				case 'UIGHUR':
 					$lang_iso = 'ug';
@@ -2589,7 +2609,7 @@ class mx_news_functions
 				break;
 
 				case 'UKRAINEAN':
-					$lang_iso = 'uk';				
+					$lang_iso = 'uk';
 					//$lang_iso = 'ua';
 					$country_name = 'UKRAINE';
 				break;
@@ -2602,7 +2622,7 @@ class mx_news_functions
 				case 'URDU':
 					$lang_iso = 'ur';
 				
-				break;				
+				break;
 				
 				case 'UZBEK':
 					$lang_iso = 'uz'; //Uyghur Perso-Arabic alphabet
@@ -2622,8 +2642,7 @@ class mx_news_functions
 				case 'VENDA':
 					$lang_iso = 've';
 				
-				break;				
-				
+				break;
 				
 				case 'VINCENTIAN-CREOLE':
 					$country_name = 'ST_VINCENT_&AMP;_GRENADINES'; //
@@ -2643,7 +2662,7 @@ class mx_news_functions
 				case 'VOLAPUK':
 					$lang_iso = 'vo';
 				
-				break;				
+				break;
 				
 				case 'FRENCH_VIETNAM':
 					$lang_iso = 'fr_vn';
@@ -2719,35 +2738,54 @@ class mx_news_functions
 				
 				case 'CHINESE':
 					$lang_iso = 'zh';
-				
+					$country_name = 'CHINA';
 				break;
 				
 				case 'CHINESE_SIMPLIFIED':
-					$lang_iso = 'zh_cmn_hans';
+				case 'ZH_CMN_HANS':
+					$lang_iso = 'zh-CN';
+					$country_name = 'CHINA';
+				break;
 				
+				case 'CHINESE_HONG_KONG':
+					$lang_iso = 'hk';
+					$country_name = 'HONG_KONG';
 				break;
 				
 				case 'CHINESE_TRADITIONAL':
+				case 'ZH_CMN_HANT':
 					$lang_iso = 'zh_cmn_hant';
-				break;				
+					$country_name = 'HONG_KONG';
+				break;
+				
+				case 'CHINESE_TRADITIONAL_TAIWAN':
+					$lang_iso = 'zh-TW';
+					$country_name = 'TAIWAN';
+				break;
 				
 				case 'ZAMBIAN':
 					$lang_iso = 'zm';
 					$country_name = 'ZAMBIA';
 				break;
+				
 				case 'ZIMBABWE':
 					$lang_iso = 'zw';
 					$country_name = 'ZIMBABWE';
 				break;
+				
 				case 'ZULU':
 					$lang_iso = 'zu';
 					$country_name = 'ZULU';
 				break;
+				
 				default:
-					$lang_iso = (strlen($lang) > 2) ? substr($lang, 0, 2) : $lang;
+					$lang_iso = (strlen($lang) > 2) ? strtolower(substr($lang, 0, 2)) : strtolower($lang);
+					$lang_iso = (strtolower($lang_iso) == 'zh') ? 'zh-TW' : $lang_iso;
 				break;
+				/* */
 			}
-		return $lang_name;
+			
+			return $lang_iso;
 	}
 
 	// since that I can't use the original function with new template system
@@ -2777,34 +2815,38 @@ class mx_news_functions
 	function get_countries($default, $select_name = "en", $dirname="language")
 	{
 		global $phpEx, $mx_root_path, $mx_user;
-
+		
 		// get all countries installed
 		$dir = opendir($mx_root_path . $dirname);
 		$countries = array();
-		while ( $file = readdir($dir) )
+		$lang_select = $select_name;
+		while ($file = readdir($dir))
 		{
 			if (preg_match('#^lang_#i', $file) && !is_file(@realpath($mx_root_path . $dirname . '/' . $file)) && !is_link(@realpath($mx_root_path . $dirname . '/' . $file)))
 			{
 				$filename = trim(str_replace('lang_', '', $file));
 				$displayname = preg_replace("/^(.*?)_(.*)$/", "\\1 [ \\2 ]", $filename);
 				$displayname = preg_replace("/\[(.*?)_(.*)\]/", "[ \\1 - \\2 ]", $displayname);
-				$countries[$file] = ucfirst($displayname);
 				$lang_code = $this->encode_lang($displayname, 'language');
+				$countries[$file] = $displayname; 
+				$lang_select .= ',' . $lang_code;
 			}
 		}
-
 		@closedir($dir);
-
+		
+		@asort($lang_select);
 		@asort($countries);
 		@reset($countries);
-
-		$lang_select = $select_name;
-		while ( list($displayname, $filename) = @each($countries) )
+		
+		$lang_count = (bool) @count($countries);
+		
+		if ($lang_count < 2)
 		{
-			$lang_select .= . ucwords($displayname);
+			return $default;
 		}
 		return $lang_select;
 	}
+	
 	/**
 	 * page header.
 	 *
@@ -2818,6 +2860,13 @@ class mx_news_functions
 		$images['mx_news_icon_edit'] = $mx_user->img('icon_post_edit', 'EDIT_POST', false, '', 'src');
 		$images['mx_news_icon_delpost'] = $mx_user->img('icon_post_delete', 'DELETE_POST', false, '', 'src');
 		
+		/* START Include language file */
+		$language = ($mx_user->user_language_name) ? $mx_user->user_language_name : (($board_config['default_lang']) ? $board_config['default_lang'] : 'english');
+		
+		$default_lang_code = $this->encode_lang($language);
+		$choice_lang_codes = 'pa,da,pt,ch,es,ro,ru,el,ur,cs,ax,en,sv,he,it,zh-TW,nl,cn,fr,hu,de';
+		$choice_lang_codes = $this->get_countries($choice_lang_codes, $default_lang_code, "language");
+		
 		$template->assign_vars( array(
 			'L_NEWS_TITLE' => $lang['mx_news_title'],
 			'L_NEWS_DISABLE' => $lang['mx_news_disable'],
@@ -2826,14 +2875,14 @@ class mx_news_functions
 			'L_EDIT' => $lang['Comment_edit'],
 			'L_DELETE' => $lang['Comment_delete'],
 			'L_REPLY' => $lang['Comment_add'],
-
-			'TRANSLATE_DEFAULT_LANG'	=> (isset($mx_news_config['translate_default_lang'])) ? $mx_news_config['translate_default_lang'] : $mx_user->data['default_lang'],
-			'TRANSLATE_CHOICE_LANG'		=> (isset($mx_news_config['translate_choice_lang'])) ? $mx_news_config['translate_choice_lang'] : 'ro,fr,it,de,ru,el,hu,he',
-
+			
+			'TRANSLATE_DEFAULT_LANG'	=> (isset($mx_news_config['translate_default_lang'])) ? $mx_news_config['translate_default_lang'] : $lang_code,
+			'TRANSLATE_CHOICE_LANG'		=> (isset($mx_news_config['translate_choice_lang'])) ? $mx_news_config['translate_choice_lang'] : $choice_lang_codes,
+			
 			'DELETE_IMG' => $images['mx_news_icon_delpost'],
 			'EDIT_IMG' => $images['mx_news_icon_edit'],
 			'REPLY_IMG' => $images['mx_news_icon_minipost'],
-
+			
 			// Buttons
 			//'B_REPLY_IMG' => $mx_user->create_button('mx_news_icon_minipost', $lang['Comment_add'], $this->this_mxurl()),
 			//'B_DELETE_IMG' => $mx_user->create_button('mx_news_icon_delpost', $lang['Comment_delete'], "javascript:delete_item('". mx_append_sid( $this->this_mxurl()) . "')"),
