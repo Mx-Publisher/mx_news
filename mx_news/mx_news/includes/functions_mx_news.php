@@ -186,7 +186,39 @@ class mx_news extends mx_news_auth
 		}
 		return $mxurl;
 	}
+	// Added by orynider for rss news addon
+	// Begin Page specific functions
+	//
+	function make_xml_compatible($text, $bbcode_uid = '', $use_bbcode = 0)
+	{
+	        global $board_config, $base_url;
+	
+	        if($use_bbcode)
+	        {
+	                if($bbcode_uid != '')
+	                {
+	                        $text = ( $board_config['allow_bbcode'] ) ? bbencode_second_pass($text, $bbcode_uid) : preg_replace('/\:[0-9a-z\:]+\]/si', ']', $text);
+	                }
+	                else
+	                {
+	                        $text = preg_replace('/\:[0-9a-z\:]+\]/si', ']', $text);
+	                }
+	                $text = make_clickable($text);
+	                if($board_config['allow_smilies'])
+	                {
+	                        $text = smilies_pass($text);
+	                        $text = str_replace("./".$board_config['smilies_path'], $base_url.$board_config['smilies_path'], $text);
+	                }
+	        }
+	        $text = nl2br($text);
 
+	        $text = str_replace('&pound', '&amp;#163;', $text);
+	        $text = str_replace('&copy;', '(c)', $text);
+
+	        $text = htmlspecialchars($text);
+
+	        return $text;
+	}
 	// =============================================
 	// Admin and mod functions
 	// =============================================
