@@ -2,7 +2,7 @@
 /**
 *
 * @package MX-Publisher Module - mx_news
-* @version $Id: mx_news.php,v 1.9 2011/03/29 08:21:22 orynider Exp $
+* @version $Id: mx_news.php,v 2.0 2020/02/29 08:21:22 orynider Exp $
 * @copyright (c) 2002-2006 [Jon Ohlsson, Mohd Basri, wGEric, PHP Arena, pafileDB, CRLin] MX-Publisher Project Team
 * @license http://opensource.org/licenses/gpl-license.php GNU General Public License v2
 *
@@ -202,7 +202,8 @@ if (!($mx_news_config['enable_module'] || $mx_user->is_admin))
 //
 $actions = array(
 	'news' => 'main',
-	'post_news' => 'post_comment'
+	'post_news' => 'post_comment',
+	'rss_news' => 'rss_news',
 	);
 
 //
